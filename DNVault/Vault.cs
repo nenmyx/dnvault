@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Headers;
 
 namespace DNVault
 {
+    /// <summary>
+    /// Base IVault implementation.
+    /// </summary>
     public class Vault : IVault
     {
+        /// <summary>
+        /// Vault user key, get this from your administrator.
+        /// Refer to Vault documentation if you are that administrator.
+        /// </summary>
         public string UserKey {get;private set;}
         private HttpClient _httpClient;
 
-        public Vault(string userkey, string  host)
+        public Vault(string userkey, string host)
         {
             UserKey = userkey;
 
@@ -21,6 +27,7 @@ namespace DNVault
 
         public List<string> FetchIndex()
         {
+            // TODO Olivia: this
             throw new NotImplementedException();
         }
     }

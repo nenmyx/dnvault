@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DNVault
 {
@@ -7,10 +8,9 @@ namespace DNVault
     /// </summary>
     interface IVault
     {
-        /// <summary>
-        /// Fetch a list of remote files associated with your user key.
-        /// </summary>
-        /// <returns>Collection of filenames.</returns>
-        List<string> FetchIndex();
+        Task<List<string>> FetchIndex();
+        Task Save(string fileName, byte[] content);
+        Task Delete(string fileName);
+        Task<byte[]> Retrieve(string fileName);
     }
 }
